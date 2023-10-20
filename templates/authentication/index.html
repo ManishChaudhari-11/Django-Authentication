@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5 text-center">
+    <h1 style="background: -webkit-linear-gradient(45deg,#00dbde,#fc00ff); -webkit-background-clip: text ; -webkit-text-fill-color: transparent; background-clip:text;">Welcome to Coding Mania</h1>
+
+    <p>This is a website for coding enthusiasts. You can find all the latest news about coding here.</p>
+
+    <div class="col-6 mx-auto card p-3 shadow-lg text-center">
+      {% if request.user.is_authenticated %}
+        <h3>Hi {{ first_name }}</h3>
+        <hr />
+        <div class="d-flex justify-content-center">
+          <a type="submit" class="btn btn-info mt-3 col-3 me-1" href="/signout/">Sign Out</a>
+        </div>
+      {% else %}
+        <h3>Sign Up or Sign In to continue</h3>
+        <hr />
+        <div class="d-flex justify-content-center">
+          <a type="submit" class="btn btn-info mt-3 col-3 me-1" href="/signup/">Sign Up</a>
+          <a type="submit" class="btn btn-warning mt-3 col-3 ms-1" href="/signin/">Sign In</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

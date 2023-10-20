@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Sign-Up Page
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+      <h2 class="text-center" style="background: -webkit-linear-gradient(45deg,#00dbde,#fc00ff); -webkit-background-clip: text ; -webkit-text-fill-color: transparent; background-clip:text;">Sign Up</h2>
+
+      {% csrf_token %}
+      <hr style="border: 2px solid black;" />
+
+      <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input name="first_name" required type="text" class="form-control" placeholder="Enter your first name" />
+      </div>
+      <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input name="last_name" required type="text" class="form-control" placeholder="Enter your last name" />
+      </div>
+      <div class="mb-3">
+        <label for="emailId" class="form-label">Email</label>
+        <input name="email" required type="email" class="form-control" placeholder="Enter your email address" />
+      </div>
+      <div class="mb-3">
+        <label for="username1" class="form-label">Username</label>
+        <input name="username" required type="text" class="form-control" placeholder="Create a username (only letters and numbers allowed)" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input name="password1" required type="password" class="form-control" placeholder="Create a password" />
+      </div>
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input name="password2" required type="password" class="form-control" placeholder="Re-enter above password" />
+      </div>
+      <p>
+        Already have account ? <a href="/signin/">Sign In</a>
+      </p>
+      <button type="submit" style="background: linear-gradient(45deg,#00dbde,#fc00ff);" class="btn btn-dark">Sign Up</button>
+    </form>
+  </div>
+{% endblock %}
